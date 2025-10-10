@@ -10,7 +10,7 @@ int map_image(Image *dst, const Image *src, PixelProcessor func, void* ctx) {
 
     for (size_t i = 0; i < src->m; ++i) {
         for (size_t j = 0; j < src->n; ++j) {
-            int ret = func(src, dst, i, j, ctx);
+            int ret = func(dst, src, i, j, ctx);
             error |= (ret & ~ERR_OK) ? ERR_PROCESSING_FAILED : 0x0;
         }
     }

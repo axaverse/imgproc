@@ -6,6 +6,12 @@
 #include "types.h"
 
 /**
+ * Given an image, the process module provides functions to manipulate and transform images at various levels (pixel, region, whole image).
+ */
+
+//-----------------------------------------------------------------------------------
+
+/**
  * Pixel processing function type. 
  * @param src Pointer to the source Image structure.
  * @param dst Pointer to the destination Image structure.
@@ -17,7 +23,9 @@
  * 
  * Function may mutate the dst image
  */
-typedef int (*PixelProcessor)(const Image *src, Image *dst, size_t i, size_t j, void *ctx);
+typedef int (*PixelProcessor)(
+    const Image *dst, Image *src, size_t i, size_t j, void *ctx
+);
 
 /**
  * Transforms the source image using the provided pixel processing function and stores the result in the destination image.

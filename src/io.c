@@ -43,7 +43,9 @@ int store_image(const char* path, const Image* img) {
 
     if (error == 0) {
         size_t totalPixels = img->m * img->n * img->channels;
-        for (size_t i = 0; i < totalPixels; ++i) { data[i] = (unsigned char)(img->data[i]); }
+        for (size_t i = 0; i < totalPixels; ++i) { 
+            data[i] = (unsigned char)(img->data[i]); 
+        }
     }
 
     if (error == 0) {
