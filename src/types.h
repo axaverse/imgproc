@@ -11,6 +11,7 @@
 #include <stddef.h>
 
 #define PATH_MAX 4096
+#define MAX_CHANNELS 4 // supports RGBA
 
 typedef struct {
     int32_t *data;
@@ -39,6 +40,7 @@ typedef enum {
     ERR_DIRECTORY_NOT_FOUND = 1 << 6,
     ERR_UNKNOWN = 1 << 7, 
     ERR_INVALID_ARGUMENTS = 1 << 8,
+    ERR_PROCESSING_FAILED = 1 << 9,
 } ErrorCode;
 
 typedef ErrorCode err_t;
@@ -56,3 +58,13 @@ typedef struct {
 } Report;
 
 typedef Report report_t;
+
+typedef struct {
+    int64_t v[MAX_CHANNELS];
+} Pixel;
+
+typedef Pixel pixel_t;
+
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#define MIN(a,b) ((a) < (b) ? (a) : (b))
+#define CLAMP(x, lower, upper) (MIN(upper, MAX(x, lower)))
