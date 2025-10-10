@@ -16,6 +16,7 @@ typedef struct {
     int32_t *data;
     size_t m, n;
     size_t channels;
+    const char *format; // supports .png for now
 } Image;
 
 typedef Image image_t;
