@@ -9,7 +9,7 @@
  */
 
 // ----------------------------------------------------------------
-int load_image(const char* path, Image* img) {
+int load_image(Image* img, const char* path) {
     int error = 0;
 
     int width, height, channels;

@@ -16,8 +16,8 @@
 
 /**
  * Loads an image given a path.
- * @param path Path to the image file.
  * @param img Pointer to an Image structure to populate.
+ * @param path Path to the image file.
  * @return Error code indicating success or failure. (Check bits from ErrorCode enum)
  *
  * Precondition:
@@ -39,7 +39,7 @@
  * - ERR_DIRECTORY_NOT_FOUND: If the directory in the path does not exist.
  * - ERR_UNKNOWN: For any other unspecified errors.
  */
-int load_image(const char* path, Image* img);
+int load_image(Image* img, const char* path);
 
 /**
  * Stores an image to a given path.
