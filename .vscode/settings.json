@@ -2,5 +2,8 @@
   "cmake.generator": "Ninja",
   "cmake.configureOnOpen": true,
   "cmake.buildGenerator": "Ninja",
-  "cmake.buildDirectory": "${workspaceFolder}/build/ninja"
+  "cmake.buildDirectory": "${workspaceFolder}/build/ninja",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_fallbackStyle": "",
+  "C_Cpp.clang_format_style": ""
 }

@@ -29,15 +29,15 @@ typedef struct {
 
 typedef enum {
     ERR_OK = 0,
-    ERR_FILE_NOT_FOUND,
-    ERR_PERMISSION_DENIED,
-    ERR_READ_FAILED,
-    ERR_WRITE_FAILED,
-    ERR_MEMORY_ALLOCATION,
-    ERR_UNSUPPORTED_FORMAT,
-    ERR_DIRECTORY_NOT_FOUND,
-    ERR_UNKNOWN, 
-    ERR_INVALID_ARGUMENTS
+    ERR_FILE_NOT_FOUND = 1 << 0,
+    ERR_PERMISSION_DENIED = 1 << 1,
+    ERR_READ_FAILED = 1 << 2,
+    ERR_WRITE_FAILED = 1 << 3,
+    ERR_MEMORY_ALLOCATION = 1 << 4,
+    ERR_UNSUPPORTED_FORMAT = 1 << 5,
+    ERR_DIRECTORY_NOT_FOUND = 1 << 6,
+    ERR_UNKNOWN = 1 << 7, 
+    ERR_INVALID_ARGUMENTS = 1 << 8,
 } ErrorCode;
 
 typedef ErrorCode err_t;
@@ -55,10 +55,3 @@ typedef struct {
 } Report;
 
 typedef Report report_t;
-
-typedef struct {
-    ErrorCode code;
-    Image* img;
-} ImageResult;
-
-typedef ImageResult result_t;
