@@ -8,8 +8,8 @@ include_directories(
     ${PROJECT_SOURCE_DIR}/vendors
 )
 
-file(GLOB SRC_FILES src/*.c)
-set(MAIN_FILE src/main.c)
+file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/src/*.c)
+set(MAIN_FILE ${PROJECT_SOURCE_DIR}/src/main.c)
 list(REMOVE_ITEM SRC_FILES ${MAIN_FILE})
 
 add_library(imgproc_core ${SRC_FILES})
