@@ -1,7 +1,7 @@
 #include "pixel_ops.h"
 
 // ----------------------------------------------------------------
-int greyscale(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
+int greyscale(Image *dst, const Image *src, size_t i, size_t j, void *ctx) {
     Pixel p = get_pixel(src, i, j);
     int64_t grey = (int64_t)(0.299 * p.v[0] + 0.587 * p.v[1] + 0.114 * p.v[2]);
     grey = CLAMP(grey, 0, 255);
@@ -15,7 +15,7 @@ int greyscale(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
     return ERR_OK;
 }
 
-int invert(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
+int invert(Image *dst, const Image *src, size_t i, size_t j, void *ctx) {
     Pixel p = get_pixel(src, i, j);
     Pixel out = {0};
 
@@ -29,7 +29,7 @@ int invert(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
     return ERR_OK;
 }
 
-int threshold(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
+int threshold(Image *dst, const Image *src, size_t i, size_t j, void *ctx) {
     if (!ctx) {
         return ERR_PROCESSING_FAILED;
     }
@@ -51,7 +51,7 @@ int threshold(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
     return ERR_OK;
 }
 
-int brighten(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
+int brighten(Image *dst, const Image *src, size_t i, size_t j, void *ctx) {
     if (!ctx) {
         return ERR_PROCESSING_FAILED;
     }
@@ -72,7 +72,7 @@ int brighten(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
     return ERR_OK;
 }
 
-int contrast(const Image *dst, Image *src, size_t i, size_t j, void *ctx) {
+int contrast(Image *dst, const Image *src, size_t i, size_t j, void *ctx) {
     if (!ctx) {
         return ERR_PROCESSING_FAILED;
     }

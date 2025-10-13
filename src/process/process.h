@@ -24,7 +24,7 @@
  * Function may mutate the dst image
  */
 typedef int (*PixelProcessor)(
-    const Image *dst, Image *src, size_t i, size_t j, void *ctx
+    Image *dst, const Image *src, size_t i, size_t j, void *ctx
 );
 
 /**
