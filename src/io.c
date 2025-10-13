@@ -49,7 +49,9 @@ int store_image(const char* path, const Image* img) {
     }
 
     if (error == 0) {
-        int success = stbi_write_png(path, img->n, img->m, img->channels, data, img->n * img->channels * sizeof(int32_t));
+        int success = stbi_write_png(
+            path, img->n, img->m, img->channels, data, img->n * img->channels
+        );
         error |= (success == 0) ? ERR_WRITE_FAILED : 0;
     }
 

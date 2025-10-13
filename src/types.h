@@ -10,7 +10,6 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-#define PATH_MAX 4096
 #define MAX_CHANNELS 4 // supports RGBA
 
 typedef struct {
@@ -60,7 +59,7 @@ typedef struct {
 typedef Report report_t;
 
 typedef struct {
-    int64_t v[MAX_CHANNELS];
+    int32_t v[MAX_CHANNELS];
 } Pixel;
 
 typedef Pixel pixel_t;
