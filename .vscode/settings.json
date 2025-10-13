@@ -5,5 +5,10 @@
   "cmake.buildDirectory": "${workspaceFolder}/build/ninja",
   "C_Cpp.formatting": "clangFormat",
   "C_Cpp.clang_format_fallbackStyle": "",
-  "C_Cpp.clang_format_style": ""
+  "C_Cpp.clang_format_style": "",
+  "files.associations": {
+    "pixel_ops.h": "c",
+    "io.h": "c",
+    "process.h": "c"
+  }
 }
