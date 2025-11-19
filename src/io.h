@@ -67,18 +67,3 @@ int load_image(Image* img, const char* path);
  * - ERR_UNKNOWN: For any other unspecified errors.
  */
 int store_image(const char* path, const Image* img);
-
-/**
- * Frees the memory allocated for an image.
- * @param img The image structure to free.
- * 
- * Precondition:
- * - img is not NULL.
- * - img->data is not NULL.
- * 
- * Postcondition:
- * - The memory allocated for img->data is freed.
- * - img->data is set to NULL to avoid dangling pointers.
- * - img itself is not freed; the caller is responsible for freeing img if it was dynamically allocated.
- */
-void free_image(Image* img);

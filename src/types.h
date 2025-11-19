@@ -9,6 +9,7 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 #define MAX_CHANNELS 4 // supports RGBA
 
@@ -20,13 +21,6 @@ typedef struct {
 } Image;
 
 typedef Image image_t;
-
-typedef struct {
-    char inputPath[PATH_MAX];
-    char outputPath[PATH_MAX];
-
-    // more options to be added later
-} config_t;
 
 typedef enum {
     ERR_OK = 0,
@@ -67,3 +61,35 @@ typedef Pixel pixel_t;
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 #define MIN(a,b) ((a) < (b) ? (a) : (b))
 #define CLAMP(x, lower, upper) (MIN(upper, MAX(x, lower)))
+
+
+/**
+ * Creates an image with the specified dimensions and number of channels.
+ * Precondition:
+ * - img is not NULL.
+ * - m > 0
+ * - n > 0
+ * - 0 < channels <= MAX_CHANNELS
+ * 
+ * Postcondition:
+ * - img is populated with allocated data of size m * n * channels.
+ * - img->m == m, img->n == n, img->channels == channels.
+ * - img->data is dynamically allocated and should be freed by the caller using free_image().
+ * - Returns ERR_OK on success, or an appropriate error code on failure.
+ */
+int create_image(Image* img, size_t m, size_t n, size_t channels);
+
+/**
+ * Frees the memory allocated for an image.
+ * @param img The image structure to free.
+ * 
+ * Precondition:
+ * - img is not NULL.
+ * - img->data is not NULL.
+ * 
+ * Postcondition:
+ * - The memory allocated for img->data is freed.
+ * - img->data is set to NULL to avoid dangling pointers.
+ * - img itself is not freed; the caller is responsible for freeing img if it was dynamically allocated.
+ */
+void free_image(Image* img);

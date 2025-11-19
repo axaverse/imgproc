@@ -58,14 +58,3 @@ int store_image(const char* path, const Image* img) {
     free(data);
     return error;
 }
-
-void free_image(Image* img) {
-    if (img && img->data) {
-        free(img->data);
-        img->data = NULL;
-        img->m = 0;
-        img->n = 0;
-        img->channels = 0;
-        img->format = NULL;
-    }
-}
